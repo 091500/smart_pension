@@ -17,5 +17,7 @@ module SmartPension
     # the framework and any gems in your application.
 
     config.autoload_paths << "#{Rails.root}/app/services"
+    config.autoload_paths << "#{Rails.root}/app/models"
+    config.autoload_paths << "#{Rails.root}/app/models/ar"
   end
 end

@@ -6,7 +6,7 @@ module SmartPension
         PagePathValidator
       ].freeze
 
-      def valid?(item)
+      def self.valid?(item)
         VALIDATORS.all? { |validator| validator.valid?(item) }
       end
     end
