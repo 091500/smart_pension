@@ -5,7 +5,7 @@ RSpec.describe SmartPension::Readers::FileReader do
 
   context 'file exists' do
     it 'generates an array of valid LogEntry objects' do
-      result = described_class.new(file_path: file_path).each { |log_entry| log_entry }
+      result = described_class.new(file_path: file_path).each_valid { |log_entry| log_entry }
 
       expect(result).to be_a(Array)
       expect(result.size).to eq(13)
@@ -15,7 +15,7 @@ RSpec.describe SmartPension::Readers::FileReader do
 
   context 'file absent' do
     it 'generates error message' do
-      expect { described_class.new(file_path: nil).each { |log_entry| log_entry } }.to raise_error
+      expect { described_class.new(file_path: 'nil').each { |log_entry| log_entry } }.to raise_error(Errno::ENOENT)
     end
   end
 end
