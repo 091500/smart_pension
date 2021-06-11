@@ -1,6 +1,6 @@
 module SmartPension
-  module Loaders
-    class FileLoader < BaseLoader
+  module Readers
+    class FileReader < BaseReader
       def initialize(file_path:)
         @file_path = file_path
       end

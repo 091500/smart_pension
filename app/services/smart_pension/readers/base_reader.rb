@@ -1,6 +1,6 @@
 module SmartPension
-  module Loaders
-    class BaseLoader
+  module Readers
+    class BaseReader
       def initialize
         raise 'Not Implemented'
       end
