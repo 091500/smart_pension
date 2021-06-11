@@ -1,0 +1,21 @@
+index:
+  page_path: /index
+  ip_address: 111.222.333.444
+
+index_no_path:
+  ip_address: 111.222.333.444
+
+index_no_ip_address:
+  page_path: /index
+
+index_different_ip_address:
+  page_path: /index
+  ip_address: 222.333.444.555
+
+about:
+  page_path: /about
+  ip_address: 111.222.333.444
+
+about_different_ip_address:
+  page_path: /about
+  ip_address: 222.333.444.555
