@@ -7,7 +7,9 @@ module SmartPension
         @log_entry_class = log_entry_class
       end
 
-      def each
+      private
+
+      def retrieve_entries
         result = []
 
         @file_class.open(@file_path, 'r').each do |line|
