@@ -17,10 +17,6 @@ module SmartPension
 
         result
       end
-
-      def each_valid
-        each.select(&:valid?)
-      end
     end
   end
 end
