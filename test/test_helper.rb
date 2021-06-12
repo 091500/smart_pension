@@ -8,7 +8,10 @@ SimpleCov.start 'rails' do
   add_filter '/channels/'
   add_filter '/mailers/'
   add_filter '/controllers/'
-  add_filter '/models/ar/'
+  add_filter '/models/smart_pension/ar/'
+  add_filter '/models/application_record.rb'
+  add_filter '/jobs/application_job.rb'
+  add_filter '/helpers/application_helper.rb'
 end
 
 ENV['RAILS_ENV'] ||= 'test'

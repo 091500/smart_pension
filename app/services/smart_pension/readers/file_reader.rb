@@ -10,7 +10,7 @@ module SmartPension
       def each
         result = []
 
-        @file_class.open(@file_path,'r').each do |line|
+        @file_class.open(@file_path, 'r').each do |line|
           page_path, ip_address = line.split(' ')
           result << @log_entry_class.new(page_path, ip_address)
         end
