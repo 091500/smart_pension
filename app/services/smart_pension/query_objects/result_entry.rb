@@ -5,8 +5,14 @@ module SmartPension
         @initial_scope = initial_scope
       end
 
-      def call(params)
-        raise 'Not implemented'
+      def call(**params)
+        sort_desc(@initial_scope, params[:sort_desc])
+      end
+      
+      private
+      
+      def sort_desc(scoped, sort)
+        sort ? Hash[scoped.sort_by { |_name, values| values.count }.reverse] : scoped
       end
     end
   end

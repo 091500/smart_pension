@@ -1,7 +1,7 @@
 module SmartPension
   module Presenters
     class Base
-      def initialize(data)
+      def initialize(data = {})
         @data = data
       end
 
