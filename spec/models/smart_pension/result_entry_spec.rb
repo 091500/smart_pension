@@ -1,15 +1,10 @@
 require 'spec_helper'
+require 'shared/log_entries_shared_context.rb'
 
 RSpec.describe SmartPension::ResultEntry do
+  include_context 'log_entries'
+
   subject { described_class.new }
-  let(:log_entries) do
-    [
-      SmartPension::LogEntry.new('/path/1', '1.2.3.4'),
-      SmartPension::LogEntry.new('/path/2', '1.2.3.4'),
-      SmartPension::LogEntry.new('/path/1', '1.2.3.4'),
-      SmartPension::LogEntry.new('/path/1', '1.2.3.5'),
-    ]
-  end
 
   context 'without items' do
     it 'returns empty hash' do
