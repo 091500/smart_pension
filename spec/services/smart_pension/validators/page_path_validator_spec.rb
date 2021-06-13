@@ -40,10 +40,10 @@ RSpec.describe SmartPension::Validators::PagePathValidator do
     end
 
     context 'item ip_address matches pattern' do
-      let(:item_one) { OpenStruct.new(ip_address: '/index') }
-      let(:item_two) { OpenStruct.new(ip_address: '/about/index') }
-      let(:item_three) { OpenStruct.new(ip_address: '/index/1') }
-      let(:item_four) { OpenStruct.new(ip_address: '/index/1-test') }
+      let(:item_one) { OpenStruct.new(page_path: '/index') }
+      let(:item_two) { OpenStruct.new(page_path: '/about/index') }
+      let(:item_three) { OpenStruct.new(page_path: '/index/1') }
+      let(:item_four) { OpenStruct.new(page_path: '/index/1-test') }
 
       it 'returns false' do
         expect(described_class.valid?(item_one)).to be_truthy

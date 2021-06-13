@@ -9,10 +9,6 @@ module SmartPension
       @validator = validator
     end
 
-    def create
-      @object.create(page_path: @page_path, ip_address: @ip_address) if valid?
-    end
-
     def valid?
       @validator.valid?(self)
     end

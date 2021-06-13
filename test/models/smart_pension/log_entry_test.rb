@@ -12,21 +12,20 @@ module SmartPension
       assert_equal :ip_address, inst.ip_address
     end
 
-    test '#create when valid' do
+    test '#valid? when valid' do
       object = MiniTest::Mock.new
-      object.expect(:create, true, [{page_path: :page_path, ip_address: :ip_address}])
 
       validator = MiniTest::Mock.new
       validator.expect(:valid?, true, [LogEntry])
 
       inst = LogEntry.new(:page_path, :ip_address, object: object, validator: validator)
 
-      assert inst.create
+      assert inst.valid?
       object.verify
       validator.verify
     end
 
-    test '#create when invalid' do
+    test '#valid? when invalid' do
       object = MiniTest::Mock.new
 
       validator = MiniTest::Mock.new
@@ -34,7 +33,7 @@ module SmartPension
 
       inst = LogEntry.new(:page_path, :ip_address, object: object, validator: validator)
 
-      assert_nil inst.create
+      assert_equal(false, inst.valid?)
       object.verify
       validator.verify
     end

@@ -4,8 +4,9 @@ module SmartPension
   module Readers
     class FileReaderTest < ActiveSupport::TestCase
       test '#valid_entries' do
+        file_name = SmartPension::Readers::FileReader::ALLOWED_FILE_NAMES.first
         file_class = MiniTest::Mock.new
-        file_class.expect(:open, file_class, [:file_path, 'r'])
+        file_class.expect(:open, file_class, [file_name, 'r'])
         file_class.expect(:each, true) do |&block|
           block.call('/test 1.2.3.4')
         end
@@ -15,7 +16,7 @@ module SmartPension
         log_entry_class.expect(:valid?, true)
 
         instance = SmartPension::Readers::FileReader.new(
-          file_path: :file_path,
+          file_path: file_name,
           file_class: file_class,
           log_entry_class: log_entry_class
         )
