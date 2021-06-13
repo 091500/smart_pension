@@ -21,7 +21,6 @@ Uniq page visits, sort order desc:
 /about 1 unique views
 /index 1 unique views
 /about/2 1 unique views
-/contact 1 unique views
 EXP
 
     assert_equal(expected.strip, SmartPension::LogParser.new.parse(file_path))
