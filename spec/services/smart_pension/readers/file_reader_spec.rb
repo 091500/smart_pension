@@ -23,7 +23,7 @@ RSpec.describe SmartPension::Readers::FileReader do
   context 'file name is not webserver.log' do
     it 'generates error message' do
       expectation = expect { described_class.new(file_path: bad_name_file_path).entries.each { |log_entry| log_entry } }
-      expectation.to raise_error(StandardError)
+      expectation.to raise_error(RuntimeError, "Bad file name: #{bad_name_file_path.to_s}")
     end
   end
 end
