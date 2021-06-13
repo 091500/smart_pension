@@ -3,7 +3,7 @@ require 'test_helper'
 module SmartPension
   class ReaderInitializerTest < ActiveSupport::TestCase
     test '#each when invalid reader' do
-      instance = SmartPension::ReaderInitializer.new('bad', file_reader_class: MiniTest::Mock.new)
+      instance = ReaderInitializer.new('bad', file_reader_class: MiniTest::Mock.new)
 
       assert_raises(RuntimeError, 'Reader is not supported for bad') { instance.each { |entry| entry } }
     end
@@ -16,7 +16,7 @@ module SmartPension
         block.call(:entry)
       end
 
-      instance = SmartPension::ReaderInitializer.new('webserver.log', file_reader_class: reader)
+      instance = ReaderInitializer.new('webserver.log', file_reader_class: reader)
 
       assert_equal(true, instance.each { |entry| entry })
       reader.verify

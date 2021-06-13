@@ -18,6 +18,5 @@ module SmartPension
 
     config.autoload_paths << "#{Rails.root}/app/services"
     config.autoload_paths << "#{Rails.root}/app/models"
-    config.autoload_paths << "#{Rails.root}/app/models/ar"
   end
 end

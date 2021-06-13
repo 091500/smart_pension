@@ -1,6 +1,6 @@
 module SmartPension
   module Readers
-    class BaseReader
+    class Base
       def entries
         @entries ||= retrieve_entries
       end

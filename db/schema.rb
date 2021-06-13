@@ -10,11 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_11_143630) do
-
-  create_table "log_entries", force: :cascade do |t|
-    t.string "page_path"
-    t.string "ip_address"
-  end
+ActiveRecord::Schema.define(version: 2021_06_13_112143) do
 
 end

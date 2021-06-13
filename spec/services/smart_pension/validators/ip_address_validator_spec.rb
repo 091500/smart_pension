@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'ostruct'
 
-RSpec.describe SmartPension::Validators::IpAddressValidator do
+RSpec.describe SmartPension::Validators::IpAddress do
   context '.valid?' do
     context 'item is nil' do
       let(:item) { nil }

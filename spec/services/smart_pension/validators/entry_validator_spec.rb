@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'ostruct'
 
-RSpec.describe SmartPension::Validators::EntryValidator do
+RSpec.describe SmartPension::Validators::Entry do
   context '.valid?' do
     context 'when not all validations passed' do
       let(:item_one) { OpenStruct.new(page_path: 'badpath', ip_address: '1.2.3.4') }

@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'ostruct'
 
-RSpec.describe SmartPension::Validators::PagePathValidator do
+RSpec.describe SmartPension::Validators::PagePath do
   context '.valid?' do
     context 'item is nil' do
       let(:item) { nil }

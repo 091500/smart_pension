@@ -2,20 +2,20 @@ require 'test_helper'
 
 module SmartPension
   module Validators
-    class PagePathValidatorTest < ActiveSupport::TestCase
+    class PagePathTest < ActiveSupport::TestCase
       test '.valid? when item is absent' do
-        assert_equal(false, SmartPension::Validators::PagePathValidator.valid?)
+        assert_equal(false, PagePath.valid?)
       end
 
       test '.valid? when item does not respond to :page_path' do
-        assert_equal(false, SmartPension::Validators::PagePathValidator.valid?('test'))
+        assert_equal(false, PagePath.valid?('test'))
       end
 
       test '.valid? when page path absent' do
         item = MiniTest::Mock.new
         item.expect(:page_path, '')
 
-        assert_equal(false, SmartPension::Validators::PagePathValidator.valid?(item))
+        assert_equal(false, PagePath.valid?(item))
         item.verify
       end
 
@@ -23,7 +23,7 @@ module SmartPension
         item = MiniTest::Mock.new
         item.expect(:page_path, 'test')
 
-        assert_equal(false, SmartPension::Validators::PagePathValidator.valid?(item))
+        assert_equal(false, PagePath.valid?(item))
         item.verify
       end
 
@@ -31,7 +31,7 @@ module SmartPension
         item = MiniTest::Mock.new
         item.expect(:page_path, '/test')
 
-        assert SmartPension::Validators::PagePathValidator.valid?(item)
+        assert PagePath.valid?(item)
         item.verify
       end
     end

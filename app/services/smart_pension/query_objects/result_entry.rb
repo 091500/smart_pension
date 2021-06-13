@@ -1,7 +1,7 @@
 module SmartPension
   module QueryObjects
     class ResultEntry
-      def initialize(initial_scope)
+      def initialize(initial_scope = nil)
         @initial_scope = initial_scope
       end
 

@@ -1,6 +1,6 @@
 module SmartPension
   module Readers
-    class FileReader < BaseReader
+    class FileReader < Base
       ALLOWED_FILE_NAMES = [
         'webserver.log'
       ].freeze

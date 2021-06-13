@@ -1,6 +1,6 @@
 module SmartPension
   module Validators
-    class BaseValidator
+    class Base
       def self.valid?(_item)
         raise 'Not implemented'
       end

@@ -1,12 +1,12 @@
 module SmartPension
   module Validators
-    class EntryValidator < BaseValidator
+    class Entry < Base
       VALIDATORS = [
-        IpAddressValidator,
-        PagePathValidator
+        IpAddress,
+        PagePath
       ].freeze
 
-      def self.valid?(item)
+      def self.valid?(item = nil)
         VALIDATORS.all? { |validator| validator.valid?(item) }
       end
     end

@@ -2,20 +2,20 @@ require 'test_helper'
 
 module SmartPension
   module Validators
-    class IpAddressValidatorTest < ActiveSupport::TestCase
+    class IpAddressTest < ActiveSupport::TestCase
       test '.valid? when item is absent' do
-        assert_equal(false, SmartPension::Validators::IpAddressValidator.valid?)
+        assert_equal(false, IpAddress.valid?)
       end
 
       test '.valid? when item does not respond to :ip_address' do
-        assert_equal(false, SmartPension::Validators::IpAddressValidator.valid?('test'))
+        assert_equal(false, IpAddress.valid?('test'))
       end
 
       test '.valid? when ip_address absent' do
         item = MiniTest::Mock.new
         item.expect(:ip_address, '')
 
-        assert_equal(false, SmartPension::Validators::IpAddressValidator.valid?(item))
+        assert_equal(false, IpAddress.valid?(item))
         item.verify
       end
 
@@ -23,7 +23,7 @@ module SmartPension
         item = MiniTest::Mock.new
         item.expect(:ip_address, 'test')
 
-        assert_equal(false, SmartPension::Validators::IpAddressValidator.valid?(item))
+        assert_equal(false, IpAddress.valid?(item))
         item.verify
       end
 
@@ -31,7 +31,7 @@ module SmartPension
         item = MiniTest::Mock.new
         item.expect(:ip_address, '1.2.3.4')
 
-        assert SmartPension::Validators::IpAddressValidator.valid?(item)
+        assert IpAddress.valid?(item)
         item.verify
       end
     end
