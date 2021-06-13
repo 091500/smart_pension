@@ -5,6 +5,7 @@ jobs: # a collection of steps
     branches:
       only:
         - master
+        - develop
         - /.*-develop/
     docker: # run the steps with Docker
       - image: cimg/ruby:2.6.6 # ...with this image as the primary container; this is where all `steps` will run
