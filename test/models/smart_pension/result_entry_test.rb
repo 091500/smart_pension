@@ -20,10 +20,10 @@ module SmartPension
 
     test '#<< when passed valid' do
       instance = ResultEntry.new
-      instance << OpenStruct.new(page_path: '/page', ip_address: '1.2.3.4')
-      instance << OpenStruct.new(page_path: '/page', ip_address: '1.2.3.5')
-      instance << OpenStruct.new(page_path: '/page', ip_address: '1.2.3.5')
-      instance << OpenStruct.new(page_path: '/test', ip_address: '1.2.3.4')
+      instance << OpenStruct.new(page_path: '/page', ip_address: '1.2.3.4', valid?: true)
+      instance << OpenStruct.new(page_path: '/page', ip_address: '1.2.3.5', valid?: true)
+      instance << OpenStruct.new(page_path: '/page', ip_address: '1.2.3.5', valid?: true)
+      instance << OpenStruct.new(page_path: '/test', ip_address: '1.2.3.4', valid?: true)
 
       assert_equal({ '/page' => %w[1.2.3.4 1.2.3.5 1.2.3.5], '/test' => %w[1.2.3.4] }, instance.uniq_pages)
       assert_equal({ '/page' => %w[1.2.3.4 1.2.3.5], '/test' => %w[1.2.3.4] }, instance.uniq_views)

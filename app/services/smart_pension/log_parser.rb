@@ -39,4 +39,3 @@ module SmartPension
     end
   end
 end
-
