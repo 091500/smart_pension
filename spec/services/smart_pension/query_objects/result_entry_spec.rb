@@ -19,6 +19,7 @@ RSpec.describe SmartPension::QueryObjects::ResultEntry do
         '/path/1' => %w[1.2.3.4 1.2.3.4 1.2.3.5],
         '/path/2' => %w[1.2.3.4]
       }
+
       expect(described_class.new(data.uniq_pages).call(params)).to eq(expected)
     end
 
@@ -28,6 +29,7 @@ RSpec.describe SmartPension::QueryObjects::ResultEntry do
         '/path/1' => %w[1.2.3.4 1.2.3.5],
         '/path/2' => %w[1.2.3.4]
       }
+
       expect(described_class.new(data.uniq_views).call(params)).to eq(expected)
     end
   end
@@ -42,15 +44,6 @@ RSpec.describe SmartPension::QueryObjects::ResultEntry do
         '/path/3' => %w[1.2.3.4 1.2.3.5 1.2.3.6]
       }
       expect(described_class.new(data.uniq_pages).call(params)).to eq(expected)
-    end
-
-    it 'does not sort' do
-      expected = {
-        '/path/1' => %w[1.2.3.4 1.2.3.5],
-        '/path/2' => %w[1.2.3.4],
-        '/path/3' => %w[1.2.3.4 1.2.3.5 1.2.3.6]
-      }
-      expect(described_class.new(data.uniq_views).call(params)).to eq(expected)
     end
   end
 end
