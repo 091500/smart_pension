@@ -1,7 +1,7 @@
 module SmartPension
   module Validators
     class IpAddressValidator < BaseValidator
-      def self.valid?(item)
+      def self.valid?(item = nil)
         return false unless item
         return false unless item.respond_to?(:ip_address)
 

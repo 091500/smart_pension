@@ -1,7 +1,7 @@
 module SmartPension
   module Validators
     class PagePathValidator < BaseValidator
-      def self.valid?(item)
+      def self.valid?(item = nil)
         return false unless item
         return false unless item.respond_to?(:page_path)
 
