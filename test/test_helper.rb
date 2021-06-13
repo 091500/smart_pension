@@ -1,6 +1,7 @@
 require 'simplecov'
 SimpleCov.start 'rails' do
   add_group "Models", "app/models"
+  add_group "Services", "app/services"
   add_filter '/bin/'
   add_filter '/db/'
   add_filter '/spec/'
@@ -12,6 +13,7 @@ SimpleCov.start 'rails' do
   add_filter '/models/application_record.rb'
   add_filter '/jobs/application_job.rb'
   add_filter '/helpers/application_helper.rb'
+  add_filter '/services/smart_pension/parser.rb'
 end
 
 ENV['RAILS_ENV'] ||= 'test'

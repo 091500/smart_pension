@@ -9,11 +9,11 @@ module SmartPension
       end
 
       test '#call without params' do
-        assert_equal(initial_scope, ResultEntry.new(initial_scope).call)
+        assert_equal(initial_scope, QueryObjects::ResultEntry.new(initial_scope).call)
       end
 
       test '#call with params sort_desc = false' do
-        assert_equal(initial_scope, ResultEntry.new(initial_scope).call(sort_desc: false))
+        assert_equal(initial_scope, QueryObjects::ResultEntry.new(initial_scope).call(sort_desc: false))
       end
 
       test '#call with params sort_desc = true' do
@@ -23,7 +23,7 @@ module SmartPension
           '/test' => [1]
         }
 
-        assert_equal(expected, ResultEntry.new(initial_scope).call(sort_desc: true))
+        assert_equal(expected, QueryObjects::ResultEntry.new(initial_scope).call(sort_desc: true))
       end
 
       private

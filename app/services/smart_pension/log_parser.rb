@@ -12,11 +12,12 @@ module SmartPension
       @query_object_class = query_object_class
       @uniq_pages_presenter_class = uniq_pages_presenter_class
       @uniq_views_presenter_class = uniq_views_presenter_class
+      @response = nil
     end
 
-    def parse(arg = nil)
+    def parse(arg = nil, puts_enabled: false)
       first_arg = arg || ARGV[0]
-      return 'Missing argument' unless first_arg
+      @response = 'Missing argument' unless first_arg
 
       begin
         result = @result_entry_class.new
@@ -26,16 +27,17 @@ module SmartPension
         uniq_pages = @uniq_pages_presenter_class.new(@query_object_class.new(result.uniq_pages).call(sort_desc: true))
         uniq_views = @uniq_views_presenter_class.new(@query_object_class.new(result.uniq_views).call(sort_desc: true))
 
-        puts "Page views, sort order desc:"
-        puts uniq_pages.show
-
-        puts
-
-        puts "Uniq page visits, sort order desc:"
-        puts uniq_views.show
+        @response = "Page views, sort order desc:\n"
+        @response << uniq_pages.show
+        @response << "\n\n"
+        @response << "Uniq page visits, sort order desc:\n"
+        @response << uniq_views.show
       rescue Exception => e
-        puts "There was an error: #{e.message}"
+        @response = "There was an error: #{e.message}"
       end
+
+      puts @response if puts_enabled
+      @response
     end
   end
 end
