@@ -7,7 +7,7 @@ jobs: # a collection of steps
         - master
         - /.*-develop/
     docker: # run the steps with Docker
-      - image: circleci/ruby:2.4.2-jessie-node # ...with this image as the primary container; this is where all `steps` will run
+      - image: circleci/ruby:2.6.6-jessie-node # ...with this image as the primary container; this is where all `steps` will run
         environment: # environment variables for primary container
           BUNDLER_VERSION: 2.1.4
           BUNDLE_JOBS: 3
