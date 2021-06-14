@@ -4,25 +4,61 @@
 
 [![codecov](https://codecov.io/gh/091500/smart_pension/branch/develop/graph/badge.svg?token=9ZYO4MINZZ)](https://codecov.io/gh/091500/smart_pension)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Task Description
+This is a ruby app to parse data from a log file.  
+It receives a log path as an argument and outputs sorted data:
+- list of pages with page views count sorted by desc
+- list of pages with unique views count sorted by desc   
 
-Things you may want to cover:
+In case of error - an error message is displayed.  
+File name should be the following: _webserver.log_
 
-* Ruby version
+# CI 
+- CircleCi integration implemented
+- CircleCi badge shows build status
+- CodeCov integration implemented
+- CodeCov badge shows code coverage percent
 
-* System dependencies
 
-* Configuration
+_CODECOV_TOKEN_ value is set in .env 
 
-* Database creation
+# How to install section
+1) git checkout
+2) bundle install
 
-* Database initialization
+# How to run app
+1) cd to the project folder
+2) run the following command: `rails r app/parser.rb /tmp/smtest/test/webserver.log`  
+where _/tmp/smtest/test/webserver.log_ is a full path to the log file
 
-* How to run the test suite
+_webserver.log_ sample is located in the sample folder 
 
-* Services (job queues, cache servers, search engines, etc.)
+# How to run specs
+1) cd to the project folder
+2) run the following command: `rspec`  
 
-* Deployment instructions
+# How to run tests
+1) cd to the project folder
+2) run the following command: `rails test`  
 
-* ...
+# How to generate docs
+1) cd to the project folder
+2) run the following command: `bundle exec rake rerdoc`  
+
+
+# Approach description
+`app/parser.rb` is an entry point of the app.
+All app logic is located in _SmartPension_ namespace.      
+_ReaderInitializer_ is responsible for determine what type of reader to use.  
+Currently, only FileReader is implemented. It reads a file for the provided path and
+parses each line as a new LogEntry instance. After all data is read, it is passed to 
+the UniqPages and UniqViews presenters. Before passing data it is sorted using ResultEntry 
+query object call.  
+      
+# Possible Improvements (ideas)
+- Rails gem could be removed, since the app does not use db.   
+- Add new readers: HttpReader, StringReader, etc.   
+- Clean up unused gems
+- Update used gems for latest versions
+
+ 
