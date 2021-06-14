@@ -153,6 +153,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rdoc (6.1.2)
     regexp_parser (2.1.1)
     rexml (3.2.5)
     rspec-core (3.5.4)
@@ -254,6 +255,7 @@ DEPENDENCIES
   minitest
   puma (~> 3.11)
   rails (~> 5.2.6)
+  rdoc
   rspec-rails (~> 3.5.0)
   rubocop
   sass-rails (~> 5.0)

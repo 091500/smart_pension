@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module SmartPension
+  # initializes reader and parses reader content
   class LogParser
     def initialize(
       reader_initializer_class: ReaderInitializer,
@@ -17,6 +18,8 @@ module SmartPension
       @response = nil
     end
 
+    # returns parsed data
+    # outputs data if puts_enabled = true
     def parse(arg = nil, puts_enabled: false)
       first_arg = arg || ARGV[0]
       @response = 'Missing argument' unless first_arg
