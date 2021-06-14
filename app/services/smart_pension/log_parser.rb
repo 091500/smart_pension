@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SmartPension
   class LogParser
     def initialize(
@@ -28,11 +30,11 @@ module SmartPension
         uniq_views = @uniq_views_presenter_class.new(@query_object_class.new(result.uniq_views).call(sort_desc: true))
 
         @response = "Page views, sort order desc:\n"
-        @response << uniq_pages.show
-        @response << "\n\n"
-        @response << "Uniq page visits, sort order desc:\n"
-        @response << uniq_views.show
-      rescue Exception => e
+        @response += uniq_pages.show
+        @response += "\n\n"
+        @response += "Uniq page visits, sort order desc:\n"
+        @response += uniq_views.show
+      rescue StandardError => e
         @response = "There was an error: #{e.message}"
       end
 

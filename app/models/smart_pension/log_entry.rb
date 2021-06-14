@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SmartPension
   class LogEntry
     attr_reader :page_path, :ip_address

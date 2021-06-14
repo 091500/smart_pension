@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'shared/log_entries_shared_context.rb'
 
@@ -11,7 +13,7 @@ RSpec.describe SmartPension::QueryObjects::ResultEntry do
   end
 
   context 'params has sort_desc = true' do
-    let(:params) { {sort_desc: true} }
+    let(:params) { { sort_desc: true } }
 
     it 'sorts desc by total page views' do
       expected = {
