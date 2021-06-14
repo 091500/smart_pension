@@ -5,8 +5,12 @@ require 'test_helper'
 module SmartPension
   module Readers
     class FileReaderTest < ActiveSupport::TestCase
+      test '#initialize with bad name' do
+        assert_raises(StandardError, 'Bad file name:') { FileReader.new(file_path: 'bad.txt') }
+      end
+
       test '#valid_entries' do
-        file_name = SmartPension::Readers::FileReader::ALLOWED_FILE_NAMES.first
+        file_name = FileReader::ALLOWED_FILE_NAMES.first
         file_class = MiniTest::Mock.new
         file_class.expect(:open, file_class, [file_name, 'r'])
         file_class.expect(:each, true) do |&block|
@@ -17,7 +21,7 @@ module SmartPension
         log_entry_class.expect(:new, log_entry_class, ['/test', '1.2.3.4'])
         log_entry_class.expect(:valid?, true)
 
-        instance = SmartPension::Readers::FileReader.new(
+        instance = FileReader.new(
           file_path: file_name,
           file_class: file_class,
           log_entry_class: log_entry_class
