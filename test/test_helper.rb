@@ -16,6 +16,9 @@ SimpleCov.start 'rails' do
   add_filter '/services/smart_pension/parser.rb'
 end
 
+require 'codecov'
+SimpleCov.formatter = SimpleCov::Formatter::Codecov
+
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'

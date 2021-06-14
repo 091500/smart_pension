@@ -33,3 +33,4 @@
 /.idea/*
 /config/application.yml
 /coverage
+.env
