@@ -2,11 +2,13 @@
 
 module SmartPension
   module Readers
+    # reads file
     class FileReader < Base
       ALLOWED_FILE_NAMES = [
         'webserver.log'
       ].freeze
 
+      # initializes instance
       def initialize(file_path:, file_class: File, log_entry_class: LogEntry)
         @file_path = file_path
         @file_class = file_class
@@ -17,6 +19,7 @@ module SmartPension
 
       private
 
+      # returns an array of LogEntry instances
       def retrieve_entries
         result = []
 
@@ -28,6 +31,7 @@ module SmartPension
         result
       end
 
+      # validates file name
       def validate_file_name!
         raise "Bad file name: #{@file_path}" unless ALLOWED_FILE_NAMES.any? { |name| @file_path.to_s.ends_with?(name) }
       end
