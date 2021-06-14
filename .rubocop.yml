@@ -1,0 +1,20 @@
+AllCops:
+  Include:
+    - 'app/**/*.rb'
+    - 'spec/**/*.rb'
+    - 'test/**/*.rb'
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'test/**/*.rb'
