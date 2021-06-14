@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module SmartPension
   class ResultEntry
     attr_reader :data
-    alias_method :uniq_pages, :data
+    alias uniq_pages data
 
     def initialize
       @data = {}

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 module SmartPension
@@ -15,7 +17,7 @@ module SmartPension
     end
 
     test '#parse when no error' do
-      file_path = Rails.root.join(*%w[spec fixtures files webserver.log]).to_s
+      file_path = Rails.root.join('spec', 'fixtures', 'files', 'webserver.log').to_s
 
       reader_initializer = MiniTest::Mock.new
       reader_initializer.expect(:new, reader_initializer, [file_path])
@@ -41,13 +43,13 @@ module SmartPension
       uniq_views_presenter.expect(:new, uniq_views_presenter, [:sorted_unique_views])
       uniq_views_presenter.expect(:show, 'show uniq views')
 
-      expected = <<EXP
-Page views, sort order desc:
-show uniq pages
+      expected = <<~EXP
+        Page views, sort order desc:
+        show uniq pages
 
-Uniq page visits, sort order desc:
-show uniq views
-EXP
+        Uniq page visits, sort order desc:
+        show uniq views
+      EXP
 
       instance = LogParser.new(
         reader_initializer_class: reader_initializer,

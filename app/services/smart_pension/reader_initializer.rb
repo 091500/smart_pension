@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SmartPension
   class ReaderInitializer
     def initialize(input_string, file_reader_class: Readers::FileReader)

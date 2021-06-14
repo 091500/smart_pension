@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SmartPension
   module QueryObjects
     class ResultEntry
@@ -8,9 +10,9 @@ module SmartPension
       def call(**params)
         sort_desc(@initial_scope, params[:sort_desc])
       end
-      
+
       private
-      
+
       def sort_desc(scoped, sort)
         sort ? Hash[scoped.sort_by { |_name, values| values.count }.reverse] : scoped
       end
