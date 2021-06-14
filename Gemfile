@@ -51,9 +51,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', '~> 0.80.0', require: false
-  # for ENV['secret'] variables. Add .env file in root folder
-  gem 'dotenv-rails'
-
 end
 
 group :test do
