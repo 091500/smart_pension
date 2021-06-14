@@ -15,7 +15,7 @@ SimpleCov.start 'rails' do
   add_filter '/models/application_record.rb'
   add_filter '/jobs/application_job.rb'
   add_filter '/helpers/application_helper.rb'
-  add_filter '/services/smart_pension/parser.rb'
+  add_filter 'parser.rb'
 end
 
 require 'codecov'
