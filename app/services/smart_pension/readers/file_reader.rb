@@ -33,7 +33,7 @@ module SmartPension
 
       # validates file name
       def validate_file_name!
-        file_name = File.basename(@file_path)
+        file_name = @file_class.basename(@file_path)
         raise "Bad file name: #{@file_path}" unless ALLOWED_FILE_NAMES.any? { |name| file_name == name }
       end
     end
