@@ -6,7 +6,7 @@ RSpec.describe SmartPension::ReaderInitializer do
   let(:file_path) { Rails.root.join('spec', 'fixtures', 'files', 'webserver.log').to_s }
 
   context 'when reader is not supported' do
-    it 'raises and error on #each' do
+    it 'raises an error on #each' do
       expect { described_class.new('test.csv').each }.to raise_error('Reader is not supported for test.csv')
     end
   end
