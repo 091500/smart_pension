@@ -17,7 +17,7 @@ RSpec.describe SmartPension::LogEntry do
     end
 
     context 'when page_path and ip_address are valid' do
-      it 'returns false' do
+      it 'returns true' do
         expect(described_class.new('/page_path', '1.2.3.4').valid?).to be_truthy
       end
     end

@@ -1,8 +1,8 @@
 # README
 
-[![CircleCI](https://circleci.com/gh/091500/smart_pension/tree/master.svg?style=shield&circle-token=032beab1c56ce78a5bb2f5e6e2c12ef06a1ff190)](https://circleci.com/gh/091500/smart_pension/tree/master)
+[![CircleCI](https://circleci.com/gh/091500/smart_pension/tree/master.svg?style=shield&circle-token=032beab1c56ce78a5bb2f5e6e2c12ef06a1ff190)](https://circleci.com/gh/091500/smart_pension/tree/develop)
 
-[![codecov](https://codecov.io/gh/091500/smart_pension/branch/master/graph/badge.svg?token=9ZYO4MINZZ)](https://codecov.io/gh/091500/smart_pension)
+[![codecov](https://codecov.io/gh/091500/smart_pension/branch/develop/graph/badge.svg?token=9ZYO4MINZZ)](https://codecov.io/gh/091500/smart_pension)
 
 # Task Description
 This is a ruby app to parse data from a log file.  
@@ -39,11 +39,24 @@ _webserver.log_ sample is located in the sample folder
 
 # How to run tests
 1) cd to the project folder
-2) run the following command: `rails test`  
+2) run the following command: `rake test`  
 
 # How to generate docs
 1) cd to the project folder
 2) run the following command: `bundle exec rake rerdoc`  
+
+# THOR
+Thor is a command line tool for executing commands.  
+List of available commands:  
+1) cd to the project folder
+2) run the following command: `thor list`  
+
+
+
+> thor app:parse PATH  # parse file by PATH   
+> thor tests:all    # run rspec and tests   
+> thor tests:rspec  # run rspec   
+> thor tests:test   # run tests   
 
 
 # Approach description
@@ -62,3 +75,5 @@ query object call.
 - Update used gems for latest versions
 
  
+# Other information
+Tested on Ubuntu 16.04.3 LTS
