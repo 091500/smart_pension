@@ -13,6 +13,7 @@ module SmartPension
         file_name = FileReader::ALLOWED_FILE_NAMES.first
         file_class = MiniTest::Mock.new
         file_class.expect(:open, file_class, [file_name, 'r'])
+        file_class.expect(:basename, file_name, [file_name])
         file_class.expect(:each, true) do |&block|
           block.call('/test 1.2.3.4')
         end
