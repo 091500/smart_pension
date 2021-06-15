@@ -5,6 +5,7 @@ require 'spec_helper'
 RSpec.describe SmartPension::Readers::FileReader do
   let(:file_path) { Rails.root.join('spec', 'fixtures', 'files', 'webserver.log') }
   let(:bad_name_file_path) { Rails.root.join('spec', 'fixtures', 'files', 'webserver.example.log') }
+  let(:bad_name_two_file_path) { Rails.root.join('spec', 'fixtures', 'files', 'bad_webserver.log') }
 
   context 'file exists' do
     it 'generates an array of valid LogEntry objects' do
@@ -28,6 +29,13 @@ RSpec.describe SmartPension::Readers::FileReader do
     it 'generates error message' do
       expectation = expect { described_class.new(file_path: bad_name_file_path).entries.each { |log_entry| log_entry } }
       expectation.to raise_error(RuntimeError, "Bad file name: #{bad_name_file_path}")
+    end
+  end
+
+  context 'file name is not webserver.log but ends with webserver.log' do
+    it 'generates error message' do
+      expectation = expect { described_class.new(file_path: bad_name_two_file_path).entries.each { |log_entry| log_entry } }
+      expectation.to raise_error(RuntimeError, "Bad file name: #{bad_name_two_file_path}")
     end
   end
 end
