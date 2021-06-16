@@ -1,6 +1,20 @@
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+require 'rake/testtask'
+require 'rdoc/task'
 
-require_relative 'config/application'
+task default: %w[test]
 
-Rails.application.load_tasks
+Rake::TestTask.new do |t|
+  t.libs << "test"
+  t.test_files = FileList['test/**/*_test.rb']
+  t.verbose = true
+end
+
+RDoc::Task.new do |rdoc|
+  rdoc.main = "README.rdoc"
+
+  rdoc.rdoc_files.include("smart_pension/**/*.rb")
+  #change above to fit needs
+
+  rdoc.title = "App Documentation"
+  rdoc.options << "--all"
+end

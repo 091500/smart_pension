@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require_relative '../../spec_helper'
+require_relative '../../../smart_pension/models/log_entry'
 
 RSpec.describe SmartPension::LogEntry do
   context '#valid?' do

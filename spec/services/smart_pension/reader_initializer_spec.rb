@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'ostruct'
+require_relative '../../spec_helper'
+require_relative '../../../smart_pension/reader_initializer'
+require_relative '../../../smart_pension/models/log_entry'
 
 RSpec.describe SmartPension::ReaderInitializer do
-  let(:file_path) { Rails.root.join('spec', 'fixtures', 'files', 'webserver.log').to_s }
+  let(:file_path) { File.join(File.dirname(__FILE__), '../../files/webserver.log').to_s }
 
   context 'when reader is not supported' do
     it 'raises an error on #each' do

@@ -17,11 +17,6 @@ jobs: # a collection of steps
           PGHOST: test
           PGUSER: test
           RAILS_ENV: test
-      - image: circleci/postgres:9.5-alpine # database image
-        environment: # environment variables for database
-          POSTGRES_USER: test
-          POSTGRES_DB: test
-          POSTGRES_PASSWORD:
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
 
@@ -53,14 +48,6 @@ jobs: # a collection of steps
             - vendor/bundle
 
       - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
-
-      - run:
-          name: Database setup
-          command: bin/rails db:schema:load --trace
-
-      - run:
           name: Run test in parallel
           command: |
             bundle exec rake test
@@ -68,7 +55,7 @@ jobs: # a collection of steps
       - run:
           name: Run spec
           command: |
-            bundle exec rails spec
+            bundle exec rspec
 
       # Save test results for timing analysis
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/

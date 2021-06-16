@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
 require 'ostruct'
+require_relative '../../../spec_helper'
+require_relative '../../../../smart_pension/validators/page_path'
 
 RSpec.describe SmartPension::Validators::PagePath do
   context '.valid?' do

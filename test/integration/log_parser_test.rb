@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require_relative '../test_helper'
+require 'minitest/autorun'
+require_relative '../../smart_pension/log_parser'
 
-class LogParserTest < ActionDispatch::IntegrationTest
+class LogParserTest < Minitest::Test
   def test_parse_using_file_reader
-    file_path = Rails.root.join('spec', 'fixtures', 'files', 'webserver.log').to_s
+    file_path = File.join(File.dirname(__FILE__), '../../spec/files/webserver.log').to_s
 
     expected = <<~EXP
       Page views, sort order desc:
