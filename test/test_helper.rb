@@ -6,7 +6,7 @@ require 'dotenv'
 
 Dotenv.load
 
-SimpleCov.start 'rails' do
+SimpleCov.start do
   add_filter '/spec/'
   add_filter '/test/'
   add_filter 'parser.rb'
