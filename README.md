@@ -1,6 +1,6 @@
 # README
 
-[![CircleCI](https://circleci.com/gh/091500/smart_pension/tree/master.svg?style=shield&circle-token=032beab1c56ce78a5bb2f5e6e2c12ef06a1ff190)](https://circleci.com/gh/091500/smart_pension/tree/develop)
+[![CircleCI](https://circleci.com/gh/091500/smart_pension/tree/master.svg?style=shield&circle-token=032beab1c56ce78a5bb2f5e6e2c12ef06a1ff190)](https://circleci.com/gh/091500/smart_pension/tree/master)
 
 [![codecov](https://codecov.io/gh/091500/smart_pension/branch/master/graph/badge.svg?token=9ZYO4MINZZ)](https://codecov.io/gh/091500/smart_pension)
 
