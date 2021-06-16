@@ -59,7 +59,7 @@ List of available commands:
 
 
 # Approach description
-`app/parser.rb` is an entry point of the app.
+`parser.rb` is an entry point of the app.
 All app logic is located in _SmartPension_ namespace.      
 _ReaderInitializer_ is responsible for determine what type of reader to use.  
 Currently, only FileReader is implemented. It reads a file for the provided path and
