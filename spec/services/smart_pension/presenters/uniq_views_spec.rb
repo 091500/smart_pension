@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-require 'shared/log_entries_shared_context.rb'
+require_relative '../../../spec_helper'
+require_relative '../../../../smart_pension/presenters/uniq_views'
+require_relative '../../../../smart_pension/query_objects/result_entry'
+require_relative '../../../../smart_pension/models/result_entry'
 
 RSpec.describe SmartPension::Presenters::UniqViews do
   include_context 'log_entries'

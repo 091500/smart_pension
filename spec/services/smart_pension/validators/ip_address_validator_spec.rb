@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
 require 'ostruct'
+require_relative '../../../spec_helper'
+require_relative '../../../../smart_pension/validators/ip_address'
 
 RSpec.describe SmartPension::Validators::IpAddress do
   context '.valid?' do
