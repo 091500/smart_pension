@@ -65,7 +65,7 @@ DEPENDENCIES
   thor
 
 RUBY VERSION
-   ruby 2.6.6p146
+   ruby 3.0.0p0
 
 BUNDLED WITH
    2.2.20

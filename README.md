@@ -71,7 +71,3 @@ query object call.
 - Add new readers: HttpReader, StringReader, etc.   
 - Update used gems for latest versions
 - Improve docs
-
- 
-# Other information
-Tested on Ubuntu 16.04.3 LTS

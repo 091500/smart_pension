@@ -12,4 +12,4 @@ SimpleCov.start do
   add_filter 'parser.rb'
 end
 
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+# SimpleCov.formatter = SimpleCov::Formatter::Codecov
