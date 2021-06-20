@@ -69,9 +69,22 @@ query object call.
       
 # Possible Improvements (ideas)
 - Add new readers: HttpReader, StringReader, etc.   
-- Update used gems for latest versions
 - Improve docs
 
- 
-# Other information
-Tested on Ubuntu 16.04.3 LTS
+# Output example
+`ruby parser.rb sample/webserver.log`  
+
+> Page views, sort order desc:   
+> /about/2 90 visits   
+> /contact 89 visits   
+> /index 82 visits   
+> /about 81 visits   
+> /help_page/1 80 visits   
+> /home 78 visits   
+> Uniq page visits, sort order desc:   
+> /index 23 unique views   
+> /home 23 unique views   
+> /contact 23 unique views   
+> /help_page/1 23 unique views   
+> /about/2 22 unique views   
+> /about 21 unique views   

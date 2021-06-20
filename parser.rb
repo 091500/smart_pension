@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'smart_pension/log_parser'
+require_relative 'log_parser/parser'
 
-SmartPension::LogParser.new.parse(puts_enabled: true)
+LogParser::Parser.new.parse(ARGV[0], puts_enabled: true)

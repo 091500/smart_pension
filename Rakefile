@@ -12,7 +12,7 @@ end
 RDoc::Task.new do |rdoc|
   rdoc.main = "README.rdoc"
 
-  rdoc.rdoc_files.include("smart_pension/**/*.rb")
+  rdoc.rdoc_files.include("log_parser/**/*.rb")
   #change above to fit needs
 
   rdoc.title = "App Documentation"

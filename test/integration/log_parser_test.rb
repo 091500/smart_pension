@@ -2,11 +2,11 @@
 
 require_relative '../test_helper'
 require 'minitest/autorun'
-require_relative '../../smart_pension/log_parser'
+require_relative '../../log_parser/parser'
 
 class LogParserTest < Minitest::Test
   def test_parse_using_file_reader
-    file_path = File.join(File.dirname(__FILE__), '../../spec/files/webserver.log').to_s
+    file_path = File.join(File.dirname(__FILE__), '../../spec/fixtures/webserver.log').to_s
 
     expected = <<~EXP
       Page views, sort order desc:
@@ -17,7 +17,6 @@ class LogParserTest < Minitest::Test
       /about 1 visits
       /index 1 visits
       /about/2 1 visits
-
       Uniq page visits, sort order desc:
       /help_page/1 4 unique views
       /home 2 unique views
@@ -28,6 +27,6 @@ class LogParserTest < Minitest::Test
       /contact 1 unique views
     EXP
 
-    assert_equal(expected.strip, SmartPension::LogParser.new.parse(file_path))
+    assert_equal(expected.strip, LogParser::Parser.new.parse(file_path))
   end
 end
