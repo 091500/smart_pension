@@ -5,7 +5,7 @@ class App < Thor
 
   desc 'parse PATH', 'parse file by PATH'
   def parse(path = File.join(File.dirname(__FILE__), 'sample/webserver.log'))
-    puts LogParser::Parser.new.parse(path)
+    LogParser::Parser.new.parse(path, puts_enabled: true)
   end
 end
 

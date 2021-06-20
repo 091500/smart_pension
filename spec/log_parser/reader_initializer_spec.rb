@@ -8,12 +8,6 @@ require_relative '../../log_parser/entities/log_entry'
 RSpec.describe LogParser::ReaderInitializer do
   let(:file_path) { File.join(File.dirname(__FILE__), '../fixtures/webserver.log').to_s }
 
-  context 'when reader is not supported' do
-    it 'raises an error on #each' do
-      expect { described_class.new('test.csv').each }.to raise_error('Reader is not supported for test.csv')
-    end
-  end
-
   context 'when reader is supported' do
     it 'yields valid LogEntry instances on #each' do
       result = described_class.new(file_path).each { |entry| entry }

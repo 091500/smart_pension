@@ -2,4 +2,4 @@
 
 require_relative 'log_parser/parser'
 
-LogParser::Parser.new.parse(puts_enabled: true)
+LogParser::Parser.new.parse(ARGV[0], puts_enabled: true)

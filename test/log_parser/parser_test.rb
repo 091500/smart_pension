@@ -15,7 +15,7 @@ module LogParser
     end
 
     def test_parse_when_error_raised
-      assert_equal('There was an error: Reader is not supported for foo', Parser.new.parse('foo'))
+      assert_equal('There was an error: File Reader failed', Parser.new.parse('foo'))
     end
 
     def test_parse_when_no_error
@@ -45,23 +45,34 @@ module LogParser
       uniq_views_presenter.expect(:new, uniq_views_presenter, [:sorted_unique_views])
       uniq_views_presenter.expect(:show, 'show uniq views')
 
-      expected = <<~EXP
-        Page views, sort order desc:
-        show uniq pages
+      result_presenter = MiniTest::Mock.new
+      result_presenter.expect(:new, result_presenter)
+      result_presenter.expect(:<<, result_presenter, ['Page views, sort order desc:'])
+      result_presenter.expect(:<<, result_presenter, ['show uniq pages'])
+      result_presenter.expect(:<<, result_presenter, ['Uniq page visits, sort order desc:'])
+      result_presenter.expect(:<<, result_presenter, ['show uniq views'])
+      result_presenter.expect(:show, :show)
 
-        Uniq page visits, sort order desc:
-        show uniq views
-      EXP
+      error_presenter = MiniTest::Mock.new
+
+      error_validator = MiniTest::Mock.new
+      error_validator.expect(:new, error_validator, [file_path, MiniTest::Mock])
+      error_validator.expect(:validate, [])
+
+      expected = :show
 
       instance = Parser.new(
         reader_initializer_class: reader_initializer,
         result_entry_class: result_entry,
         query_object_class: query_object,
         uniq_pages_presenter_class: uniq_pages_presenter,
-        uniq_views_presenter_class: uniq_views_presenter
+        uniq_views_presenter_class: uniq_views_presenter,
+        result_presenter_class: result_presenter,
+        error_presenter_class: error_presenter,
+        error_validator_class: error_validator
       )
 
-      assert_equal(expected.strip, instance.parse(file_path))
+      assert_equal(expected, instance.parse(file_path))
       reader_initializer.verify
       result_entry.verify
       query_object.verify

@@ -17,7 +17,6 @@ class LogParserTest < Minitest::Test
       /about 1 visits
       /index 1 visits
       /about/2 1 visits
-
       Uniq page visits, sort order desc:
       /help_page/1 4 unique views
       /home 2 unique views
