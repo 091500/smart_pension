@@ -60,7 +60,7 @@ List of available commands:
 
 # Approach description
 `parser.rb` is an entry point of the app.
-All app logic is located in _SmartPension_ namespace.      
+All app logic is located in _LogParser_ namespace.      
 _ReaderInitializer_ is responsible for determine what type of reader to use.  
 Currently, only FileReader is implemented. It reads a file for the provided path and
 parses each line as a new LogEntry instance. After all data is read, it is passed to 
