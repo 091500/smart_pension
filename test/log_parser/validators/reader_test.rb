@@ -16,8 +16,11 @@ module LogParser
         reader = MiniTest::Mock.new
         reader.expect(:is_a?, true, [MiniTest::Mock])
 
-        assert Reader.valid?(reader, :path, file_reader_validator_class: file_reader_validator_class,
-          file_reader_class: file_reader_class)
+        assert Reader.valid?(
+          reader, :path,
+          file_reader_validator_class: file_reader_validator_class,
+          file_reader_class: file_reader_class
+        )
 
         file_reader_validator_class.verify
         reader.verify
@@ -30,8 +33,14 @@ module LogParser
         reader = MiniTest::Mock.new
         reader.expect(:is_a?, false, [MiniTest::Mock])
 
-        assert_equal(false, Reader.valid?(reader, :path, file_reader_validator_class: file_reader_validator_class,
-          file_reader_class: file_reader_class))
+        assert_equal(
+          false,
+          Reader.valid?(
+            reader, :path,
+            file_reader_validator_class: file_reader_validator_class,
+            file_reader_class: file_reader_class
+          )
+        )
 
         file_reader_validator_class.verify
         reader.verify

@@ -27,9 +27,11 @@ module LogParser
         reader.expect(:reader, :reader)
 
         reader_validator = MiniTest::Mock.new
-        reader_validator.expect(:valid?, false, [:reader, :path])
+        reader_validator.expect(:valid?, false, %i[reader path])
 
-        assert Error.new(:path, reader, reader_validator_class: reader_validator).validate.include?('File Reader failed')
+        assert Error.new(:path, reader, reader_validator_class: reader_validator)
+                    .validate
+                    .include?('File Reader failed')
       end
     end
   end

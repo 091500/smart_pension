@@ -3,12 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
-gem 'thor'
 gem 'rake'
 
 group :development, :test do
   gem 'rspec'
-  gem 'rdoc'
   # for ENV['secret'] variables. Add .env file in root folder
   gem 'dotenv'
 end
