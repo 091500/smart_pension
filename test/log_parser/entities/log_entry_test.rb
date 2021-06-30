@@ -10,10 +10,7 @@ module LogParser
       def test_initialize
         validator = MiniTest::Mock.new
 
-        inst = LogEntry.new(:page_path, :ip_address, validator: validator)
-
-        assert_equal :page_path, inst.page_path
-        assert_equal :ip_address, inst.ip_address
+        assert LogEntry.new(:page_path, :ip_address, validator: validator)
       end
 
       def test_valid_when_valid

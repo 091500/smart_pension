@@ -41,22 +41,6 @@ _webserver.log_ sample is located in the sample folder
 1) cd to the project folder
 2) run the following command: `bundle exec rake test`  
 
-# How to generate docs
-1) cd to the project folder
-2) run the following command: `bundle exec rake rerdoc`  
-
-# THOR
-Thor is a command line tool for executing commands.  
-List of available commands:  
-1) cd to the project folder
-2) run the following command: `thor list`  
-
-
-> thor app:parse PATH  # parse file by PATH   
-> thor tests:all    # run rspec and tests   
-> thor tests:rspec  # run rspec   
-> thor tests:test   # run tests   
-
 
 # Approach description
 `parser.rb` is an entry point of the app.
