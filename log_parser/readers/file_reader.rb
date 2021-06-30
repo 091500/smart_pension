@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
-require_relative 'base'
 require_relative '../entities/log_entry'
 require_relative '../validators/file_reader'
 
 module LogParser
   module Readers
     # reads file
-    class FileReader < Base
+    class FileReader
       # initializes instance
       def initialize(
         file_path:,
@@ -17,6 +16,15 @@ module LogParser
         @file_path = file_path
         @file_class = file_class
         @log_entry_class = log_entry_class
+      end
+
+      def entries
+        @entries ||= retrieve_entries
+      end
+
+      # returns array of valid entries
+      def valid_entries
+        entries.select(&:valid?)
       end
 
       private

@@ -2,7 +2,6 @@
 
 require_relative '../../spec_helper'
 require_relative '../../../log_parser/readers/file_reader'
-require_relative '../../../log_parser/entities/result_entry'
 
 RSpec.describe LogParser::Readers::FileReader do
   let(:file_path) { File.join(File.dirname(__FILE__), '../../fixtures/webserver.log').to_s }
