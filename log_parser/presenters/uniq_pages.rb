@@ -8,7 +8,7 @@ module LogParser
     class UniqPages < Base
       # returns formatted data
       def show
-        @data.map { |key, value| "#{key} #{value.count} visits" }.join("\n")
+        data.map { |key, value| "#{key} #{value.count} visits" }.join("\n")
       end
     end
   end

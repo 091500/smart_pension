@@ -12,10 +12,14 @@ module LogParser
       def self.valid?(
         reader,
         path,
-        file_reader_validator_class: FileReader,
-        file_reader_class: LogParser::Readers::FileReader
+        file_reader_class: LogParser::Readers::FileReader,
+        validators: { file_reader: FileReader }
       )
-        return file_reader_validator_class.valid?(path) if reader.is_a?(file_reader_class)
+
+        if reader.is_a?(file_reader_class)
+          return false unless validators[:file_reader]
+          return validators[:file_reader].valid?(path)
+        end
 
         false
       end

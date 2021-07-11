@@ -16,27 +16,15 @@ module LogParser
       end
 
       def test_valid_when_page_path_absent
-        item = MiniTest::Mock.new
-        item.expect(:page_path, '')
-
-        assert_equal(false, PagePath.valid?(item))
-        item.verify
+        assert_equal(false, PagePath.valid?(''))
       end
 
       def test_valid_when_page_path_does_not_match_pattern
-        item = MiniTest::Mock.new
-        item.expect(:page_path, 'test')
-
-        assert_equal(false, PagePath.valid?(item))
-        item.verify
+        assert_equal(false, PagePath.valid?('test'))
       end
 
       def test_valid_when_page_path_matches_pattern
-        item = MiniTest::Mock.new
-        item.expect(:page_path, '/test')
-
-        assert PagePath.valid?(item)
-        item.verify
+        assert PagePath.valid?('/test')
       end
     end
   end

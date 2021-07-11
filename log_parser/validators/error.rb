@@ -15,13 +15,16 @@ module LogParser
 
       def validate
         errors = []
-        errors << 'Missing file path' unless @path
-        errors << 'Reader is not supported' unless @reader
-        errors << 'File Reader failed' unless @reader_validator_class.valid?(@reader.reader, @path) if @reader
+        errors << 'Missing file path' unless path
+        errors << 'Reader is not supported' unless reader
+        errors << 'File Reader failed' unless reader_validator_class.valid?(reader.reader, @path) if reader
 
         errors
       end
 
+      private
+
+      attr_reader :path, :reader, :reader_validator_class
     end
   end
 end

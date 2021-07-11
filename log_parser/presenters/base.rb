@@ -12,6 +12,10 @@ module LogParser
       def show
         raise 'Not implemented'
       end
+
+      private
+
+      attr_reader :data
     end
   end
 end
