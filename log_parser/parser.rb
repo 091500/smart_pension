@@ -30,7 +30,6 @@ module LogParser
       @result_presenter_class = result_presenter_class
       @error_presenter_class = error_presenter_class
       @error_validator_class = error_validator_class
-      @errors = []
     end
 
     # returns parsed data
