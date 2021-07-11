@@ -37,7 +37,7 @@ module LogParser
     def parse(arg = nil, puts_enabled: false)
       result = ''
       reader_initializer = reader_initializer_class.new(arg)
-      errors = validate(arg, reader_initializer)
+      errors = error_validator_class.new(arg, reader_initializer).validate
 
       on_success(errors) do
         result = prepare_result(reader_initializer)
@@ -55,10 +55,6 @@ module LogParser
 
     attr_reader :reader_initializer_class, :result_entry_class, :query_object_class, :uniq_pages_presenter_class,
                 :uniq_views_presenter_class, :result_presenter_class, :error_presenter_class, :error_validator_class
-
-    def validate(path, reader)
-      error_validator_class.new(path, reader).validate
-    end
 
     def prepare_result(reader)
       result_entry = result_entry_class.new
