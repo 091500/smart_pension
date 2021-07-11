@@ -19,7 +19,7 @@ module LogParser
       end
 
       def entries
-        @entries ||= retrieve_entries
+        log_entries ||= retrieve_entries
       end
 
       # returns array of valid entries
@@ -29,12 +29,15 @@ module LogParser
 
       private
 
+      attr_reader :file_path, :file_class, :log_entry_class
+      attr_accessor :log_entries
+
       def retrieve_entries
         result = []
 
-        @file_class.foreach(@file_path) do |line|
+        file_class.foreach(file_path) do |line|
           page_path, ip_address = line.split(' ')
-          result << @log_entry_class.new(page_path, ip_address)
+          result << log_entry_class.new(page_path, ip_address)
         end
 
         result

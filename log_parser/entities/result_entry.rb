@@ -4,12 +4,13 @@ module LogParser
   module Entities
     # represents a result entry
     class ResultEntry
-      attr_reader :data
-      alias uniq_pages data
-
       # initializes instance
       def initialize
-        @data = {}
+        @entry_data = {}
+      end
+
+      def uniq_pages
+        entry_data
       end
 
       # collects valid entries
@@ -17,14 +18,18 @@ module LogParser
         return unless log_entry.respond_to?(:valid?)
         return unless log_entry.valid?
 
-        @data[log_entry.page_path] ||= []
-        @data[log_entry.page_path] << log_entry.ip_address
+        entry_data[log_entry.page] ||= []
+        entry_data[log_entry.page] << log_entry.ip
       end
 
       # Returns unique views data
       def uniq_views
-        @data.each_with_object({}) { |(name, addresses), hash| hash[name] = addresses.uniq }
+        entry_data.each_with_object({}) { |(name, addresses), hash| hash[name] = addresses.uniq }
       end
+
+      private
+
+      attr_reader :entry_data
     end
   end
 end

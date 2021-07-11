@@ -18,8 +18,10 @@ module LogParser
 
         assert Reader.valid?(
           reader, :path,
-          file_reader_validator_class: file_reader_validator_class,
-          file_reader_class: file_reader_class
+          file_reader_class: file_reader_class,
+          validators: {
+            file_reader: file_reader_validator_class
+          }
         )
 
         file_reader_validator_class.verify
@@ -37,8 +39,10 @@ module LogParser
           false,
           Reader.valid?(
             reader, :path,
-            file_reader_validator_class: file_reader_validator_class,
-            file_reader_class: file_reader_class
+            file_reader_class: file_reader_class,
+            validators: {
+              file_reader: file_reader_validator_class
+            }
           )
         )
 

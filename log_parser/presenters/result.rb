@@ -10,12 +10,16 @@ module LogParser
 
       # returns formatted data
       def show
-        @data_lines.join("\n")
+        data_lines.join("\n")
       end
 
       def <<(data_line)
-        @data_lines << data_line
+        data_lines << data_line
       end
+
+      private
+
+      attr_reader :data_lines
     end
   end
 end

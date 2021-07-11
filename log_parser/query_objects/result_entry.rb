@@ -10,10 +10,12 @@ module LogParser
 
       # returns scoped data
       def call(params = {})
-        sort_desc(@initial_scope, params[:sort_desc])
+        sort_desc(initial_scope, params[:sort_desc])
       end
 
       private
+
+      attr_reader :initial_scope
 
       # returns sorted by desc scope
       def sort_desc(scoped, sort)

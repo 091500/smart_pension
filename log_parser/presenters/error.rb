@@ -10,9 +10,13 @@ module LogParser
 
       # returns formatted data
       def show
-        return if @errors.count == 0
-        "There was an error: #{@errors.join(', ')}"
+        return if errors.count == 0
+        "There was an error: #{errors.join(', ')}"
       end
+
+      private
+
+      attr_reader :errors
     end
   end
 end

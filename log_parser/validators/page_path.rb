@@ -7,12 +7,10 @@ module LogParser
     # page path validator
     class PagePath < Base
       # validates page path
-      def self.valid?(item = nil)
-        return false unless item
-        return false unless item.respond_to?(:page_path)
+      def self.valid?(page = nil)
+        return false unless page
 
-        page_path = item.page_path
-        page_path&.match?(/^\//)
+        page.match?(/^\//)
       end
     end
   end
